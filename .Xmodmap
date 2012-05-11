@@ -1,0 +1,14 @@
+keycode 177 = X86Phone
+keycode 243 = XF86Documents
+keycode 234 = XF86Pictures
+keycode 221 = XF86Music
+keycode 224 = XF86Tools
+keycode 192 = XF86Launch0
+keycode 193 = XF86Launch1
+keycode 194 = XF86Launch2
+keycode 195 = XF86Launch3
+keycode 196 = XF86Launch4
+keycode 164 = XF86HotLinks
+keycode 156 = 
+keycode 157 = 
+keycode 179 = 
