@@ -38,7 +38,7 @@ total_run_times 0
 # Create own window instead of using desktop (required in nautilus)
 own_window yes
 # If own_window is yes, you may use type normal, desktop or override
-own_window_type override
+own_window_type normal
 # Use pseudo transparency with own_window?
 own_window_transparent yes
 # If own_window_transparent is set to no, you can set the background colour    here
@@ -74,13 +74,13 @@ color2 cc0000
 # Text alignment, other possible values are commented
 #alignment top_left
 #alignment top_right
-alignment bottom_left
-#alignment bottom_right
+#alignment bottom_left
+alignment bottom_right
 #alignment none
 # Gap between borders of screen and text
 # same thing as passing -x at command line
-gap_x 70
-gap_y 10
+gap_x 5
+gap_y 5
 # Subtract file system buffers from used memory?
 no_buffers yes
 # set to yes if you want all text to be in uppercase
@@ -109,7 +109,8 @@ diskio_avg_samples 1
 # stuff after 'TEXT' will be formatted on screen
 TEXT
 ${color}Uptime: ${color0}${uptime}
-${color}CPU: ${color0}${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${cpu cpu5} ${cpu cpu6} - ${hwmon 1 temp 2}C
+# hwmon inputs are at /sys/class/hwmon/hwmon*/device/
+${color}CPU: ${color0}${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${cpu cpu5} ${cpu cpu6} - ${if_existing /sys/class/hwmon/hwmon0/temp2_input}${hwmon 0 temp 1}${hwmon 0 temp 2}${else}${hwmon 1 temp 1}${hwmon 1 temp 2}${endif}C
 ${color1}${cpugraph cpu1 24,110 0000ec 00ec00} ${cpugraph cpu2 24,110 0000ec 00ec00}
 ${color}RAM:  ${color0}${mem} - ${memperc}% ${membar}
 ${color}Swap: ${color0}${swap} - ${swapperc}% ${swapbar}

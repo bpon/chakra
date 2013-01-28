@@ -1,5 +1,5 @@
 set nocompatible
-set term=ansi
+set term=xterm
 set backspace=indent,eol,start
 set shiftwidth=4
 set tabstop=4
