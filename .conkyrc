@@ -110,7 +110,8 @@ diskio_avg_samples 1
 TEXT
 ${color}Uptime: ${color0}${uptime}
 # hwmon inputs are at /sys/class/hwmon/hwmon*/device/
-${color}CPU: ${color0}${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${cpu cpu5} ${cpu cpu6} - ${hwmon 1 temp 1}C ${hwmon 1 temp 2}C
+${color}CPU: ${color0}${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${cpu cpu5} ${cpu cpu6}
+#- ${hwmon 1 temp 1}C ${hwmon 1 temp 2}C
 ${color1}${cpugraph cpu1 24,110 0000ec 00ec00} ${cpugraph cpu2 24,110 0000ec 00ec00}
 ${color}RAM:  ${color0}${mem} - ${memperc}% ${membar}
 ${color}Swap: ${color0}${swap} - ${swapperc}% ${swapbar}
