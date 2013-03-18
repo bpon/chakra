@@ -1,0 +1,12 @@
+*
+!.gitignore
+!.bashrc
+!.conkyrc
+!.vimrc
+!.Xmodmap
+!.xprofile
+!bin
+!bin/conky-start.sh
+!bin/pa-switch-output.sh
+!bin/screensaver-toggle.sh
+!bin/xbox360.cfg
