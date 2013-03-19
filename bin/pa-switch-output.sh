@@ -27,3 +27,7 @@ for i in $sink_inputs; do
     pacmd move-sink-input $i $next_sink
     echo
 done
+
+set +e
+sink_name=$(pacmd list-sinks | grep -A 1 "index: $next_sink" | grep "name:" | sed -rn 's/.*name: .+\.([a-zA-Z0-9]+).*/\1/p')
+notify-send "Audio output: $sink_name"
