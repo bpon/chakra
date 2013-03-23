@@ -1,22 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
-num_sinks=$(pacmd list-sinks | grep "index:" | wc -l)
-curr_sink=$(pacmd list-sinks | grep -B 1 "`pacmd info | sed -rn 's/Default sink name: (.+)/\1/p'`" | grep "index:" | sed -rn 's/.*index: ([0-9]+)/\1/p')
+sinks=(`pacmd list-sinks | grep "index:" | sed -rn 's/.*index: ([0-9]+)/\1/p'`)
+num_sinks=${#sinks[@]}
 
 if [ "$num_sinks" = "0" ]; then
     echo "No sinks available"
     exit 1
 fi
 
+curr_sink=`pacmd list-sinks | grep "* index:" | sed -rn 's/.*index: ([0-9]+)/\1/p'`
+
 if [ -z "$curr_sink" ]; then
     echo "Default sink is unknown"
     exit 1
 fi
 
-next_sink=$((curr_sink % num_sinks + 1))
+# Find current sink index
+for ((i=0; i<$num_sinks; i++)); do
+    if [ "${sinks[i]}" = "$curr_sink" ]; then
+        next_sink=${sinks[(((i + 1) % num_sinks))]}
+        break
+    fi
+done
 
+# Move to next sink
 echo "Setting default sink index to $next_sink"
 pacmd set-default-sink $next_sink
 echo
