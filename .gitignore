@@ -5,6 +5,7 @@
 !.vimrc
 !.Xmodmap
 !.xprofile
+!.config/sublime-text-2/Packages/Default/Preferences.sublime-settings
 !bin
 !bin/conky-start.sh
 !bin/pa-switch-output.sh
