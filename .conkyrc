@@ -57,7 +57,7 @@ draw_outline no
 # Draw borders around text
 draw_borders no
 # Draw borders around graphs
-draw_graph_borders yes
+draw_graph_borders no
 # Stippled borders?
 stippled_borders 8
 # border margins
@@ -68,14 +68,14 @@ border_width 1
 default_color 999966
 default_shade_color black
 default_outline_color black
-color0 0033ff
+color0 00ecec
 color1 999999
-color2 cc0000
+color2 ffcccc
 # Text alignment, other possible values are commented
 #alignment top_left
 #alignment top_right
-#alignment bottom_left
-alignment bottom_right
+alignment bottom_left
+#alignment bottom_right
 #alignment none
 # Gap between borders of screen and text
 # same thing as passing -x at command line
@@ -127,9 +127,9 @@ ${color0}${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 
 ${color}Disk Reads: ${color0}${diskio_read}   ${color}Writes: ${color0}${diskio_write}
-${color1}${diskiograph_read 24,110 00ecec 0000ec} ${diskiograph_write 24,110 0000ec 00ecec}
+${color1}${diskiograph_read 24,110 0000ec 00ec00} ${diskiograph_write 24,110 0000ec 00ec00}
 ${color}Network Down: ${color0}${downspeed eth0}   ${color}Up: ${color0}${upspeed eth0}
-${color1}${downspeedgraph eth0 24,110 ec0000 0000ec} ${upspeedgraph eth0 24,110 0000ec ec0000}
+${color1}${downspeedgraph eth0 24,110 0000ec 00ec00} ${upspeedgraph eth0 24,110 0000ec 00ec00}
 ${color}Connections in: ${color0}${tcp_portmon 1 32767 count}  ${color}out: ${color0}${tcp_portmon 32768 61000 count}  ${color}Total: ${color0}${tcp_portmon 1 65535 count}
 
 ${color}Inbound Connection ${alignr} Local Service
