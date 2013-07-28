@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Switches Pulse Audio output
+
 set -e
 
 sinks=(`pacmd list-sinks | grep "index:" | sed -rn 's/.*index: ([0-9]+)/\1/p'`)
@@ -39,4 +41,5 @@ done
 
 set +e
 sink_name=$(pacmd list-sinks | grep -A 1 "index: $next_sink" | grep "name:" | sed -rn 's/.*name: .+\.([a-zA-Z0-9]+).*/\1/p')
+echo "Audio output: $sink_name"
 notify-send "Audio output: $sink_name"
