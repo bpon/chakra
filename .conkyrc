@@ -31,14 +31,14 @@ xftalpha 0.8
 # mail spool
 mail_spool $MAIL
 # Update interval in seconds
-update_interval 5.0
+update_interval 3.0
 # This is the number of times Conky will update before quitting.
 # Set to zero to run forever.
 total_run_times 0
 # Create own window instead of using desktop (required in nautilus)
 own_window yes
 # If own_window is yes, you may use type normal, desktop or override
-own_window_type normal
+own_window_type override
 # Use pseudo transparency with own_window?
 own_window_transparent yes
 # If own_window_transparent is set to no, you can set the background colour    here
@@ -87,10 +87,10 @@ no_buffers yes
 uppercase no
 # number of cpu samples to average
 # set to 1 to disable averaging
-cpu_avg_samples 1
+cpu_avg_samples 2
 # number of net samples to average
 # set to 1 to disable averaging
-net_avg_samples 1
+net_avg_samples 2
 # Force UTF8? note that UTF8 support required XFT
 override_utf8_locale no
 # Add spaces to keep things from moving about? This only affects certain objects.
@@ -105,14 +105,14 @@ use_spacer none
 # allows characters right after the variable and must be used in network
 # stuff because of an argument
 short_units yes
-diskio_avg_samples 1
+diskio_avg_samples 2
 # stuff after 'TEXT' will be formatted on screen
 TEXT
 ${color}Uptime: ${color0}${uptime}
 # hwmon inputs are at /sys/class/hwmon/hwmon*/device/
 ${color}CPU: ${color0}${cpu cpu1} ${cpu cpu2} ${cpu cpu3} ${cpu cpu4} ${cpu cpu5} ${cpu cpu6}
 #- ${hwmon 1 temp 1}C ${hwmon 1 temp 2}C
-${color1}${cpugraph cpu1 24,110 0000ec 00ec00} ${cpugraph cpu2 24,110 0000ec 00ec00}
+${color1}${cpugraph cpu1 20,33 0000ec 00ec00} ${cpugraph cpu2 20,33 0000ec 00ec00} ${cpugraph cpu3 20,33 0000ec 00ec00} ${cpugraph cpu4 20,33 0000ec 00ec00} ${cpugraph cpu5 20,33 0000ec 00ec00} ${cpugraph cpu6 20,33 0000ec 00ec00}
 ${color}RAM:  ${color0}${mem} - ${memperc}% ${membar}
 ${color}Swap: ${color0}${swap} - ${swapperc}% ${swapbar}
 ${color}Procs:  ${color0}${processes}   ${color}Running: ${color0}${running_processes}
@@ -127,9 +127,9 @@ ${color0}${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 
 ${color}Disk Reads: ${color0}${diskio_read}   ${color}Writes: ${color0}${diskio_write}
-${color1}${diskiograph_read 24,110 0000ec 00ec00} ${diskiograph_write 24,110 0000ec 00ec00}
+${color1}${diskiograph_read 20,110 0000ec 00ec00} ${diskiograph_write 20,110 0000ec 00ec00}
 ${color}Network Down: ${color0}${downspeed eth0}   ${color}Up: ${color0}${upspeed eth0}
-${color1}${downspeedgraph eth0 24,110 0000ec 00ec00} ${upspeedgraph eth0 24,110 0000ec 00ec00}
+${color1}${downspeedgraph eth0 20,110 0000ec 00ec00} ${upspeedgraph eth0 20,110 0000ec 00ec00}
 ${color}Connections in: ${color0}${tcp_portmon 1 32767 count}  ${color}out: ${color0}${tcp_portmon 32768 61000 count}  ${color}Total: ${color0}${tcp_portmon 1 65535 count}
 
 ${color}Inbound Connection ${alignr} Local Service
