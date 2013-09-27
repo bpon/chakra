@@ -17,4 +17,5 @@ if [ -n "$display1" ]; then
     else
         xrandr --output "$display0" --auto --output "$display1" --off
     fi
+    . x-refresh.sh
 fi
